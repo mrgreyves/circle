@@ -12,7 +12,7 @@ jobs:
       - run:
           name: deploy 
           command: |
-            ansible all -m ping
+            ansible --version
             
 workflows:
   version: 2
