@@ -1,0 +1,21 @@
+version: 2.1
+
+defaults: &defaults
+  docker:
+    - image: mrgreyves/ansible:0.1
+
+jobs:
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: deploy 
+          command: |
+            ansible all -m ping
+            
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy
